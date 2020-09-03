@@ -6,6 +6,7 @@ from bokeh.plotting import figure
 from bokeh.io import show, output_notebook, push_notebook, curdoc
 from bokeh.models import ColumnDataSource, FactorRange, HoverTool, Select, Panel
 from bokeh.layouts import WidgetBox, row, column
+from bokeh.models import Column
 from bokeh.palettes import YlGn
 
 # function time_series
@@ -55,7 +56,7 @@ def time_series(grouper):
     # Plot
     p = make_plot(src)
 
-    layout = column(WidgetBox(camr_select), p)
+    layout = column([Column(camr_select, width = 500), p])
 
     tab = Panel(child=layout, title='Rating Times series per CAMR')
 
